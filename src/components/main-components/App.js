@@ -4,6 +4,7 @@ import Header from "./Header";
 import Menu from "./Menu";
 import Footer from "./Footer";
 import RouterSections from "./RouterSections";
+import "./style.css";
 
 class App extends Component {
   state = {};
@@ -14,7 +15,7 @@ class App extends Component {
         <BrowserRouter>
           <Header />
           <Menu />
-          <main>
+          <main className="main">
             <RouterSections />
           </main>
           <Footer />
