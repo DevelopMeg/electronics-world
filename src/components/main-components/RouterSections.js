@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import WelcomePage from "../route-components/WelcomePage";
 import ProductsList from "../route-components/ProductsList";
-import ProductsMoreInfo from "../route-components/ProductsMoreInfo";
+import ProductsInfo from "../route-components/ProductsInfo";
 import ShoppingCart from "../route-components/ShoppingCart";
 import ShoppingForm from "../route-components/ShoppingForm";
 import ErrorPage from "../route-components/ErrorPage";
@@ -14,11 +14,34 @@ class RouterSections extends Component {
     dataPhone: [],
     loadingDataPhone: false,
     errorDataPhone: false,
-    productIdMoreInfo: ""
+    productIdMoreInfo: "",
+    orderPosition: [],
+    totalPriceCart: 0,
+    formInfoId: []
   };
 
   componentDidMount() {
     this.handleGetDataPhone();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.orderPosition !== this.state.orderPosition) {
+      if (this.state.orderPosition.length !== 0) {
+        const prices = this.state.orderPosition.map(order => {
+          return order.totalPrice;
+        });
+
+        const priceCart = prices.reduce((a, b) => {
+          return a + b;
+        });
+
+        const totalPriceCart = priceCart.toFixed(2);
+
+        this.setState({
+          totalPriceCart
+        });
+      }
+    }
   }
 
   handleGetDataPhone = async () => {
@@ -52,6 +75,53 @@ class RouterSections extends Component {
     });
   };
 
+  handleAddProductToCart = (
+    id,
+    name,
+    color,
+    capacity,
+    price,
+    totalPrice,
+    extraCostColor,
+    extraCostCapacity
+  ) => {
+    const order = {
+      name,
+      color,
+      capacity,
+      price,
+      totalPrice,
+      extraCostColor,
+      extraCostCapacity
+    };
+
+    this.setState(prevState => ({
+      orderPosition: [...prevState.orderPosition, order]
+    }));
+  };
+
+  handleInfoIdForm = (
+    idProduct,
+    colorsId,
+    capacitiesId,
+    colorId,
+    capacityId,
+    totalPrice
+  ) => {
+    const infoId = {
+      idProduct,
+      colorsId,
+      capacitiesId,
+      colorId,
+      capacityId,
+      totalPrice
+    };
+
+    this.setState(prevState => ({
+      formInfoId: [...prevState.formInfoId, infoId]
+    }));
+  };
+
   render() {
     if (this.state.errorDataPhone) {
       return <ErrorData />;
@@ -61,7 +131,7 @@ class RouterSections extends Component {
       return <LoadingData />;
     }
 
-    const { dataPhone } = this.state;
+    const { dataPhone, productIdMoreInfo, orderPosition } = this.state;
 
     return (
       <Switch>
@@ -73,11 +143,28 @@ class RouterSections extends Component {
               <ProductsList
                 dataPhone={dataPhone}
                 handleOpenMoreInfo={this.handleOpenMoreInfo}
+                orderPosition={orderPosition}
               />
             );
           }}
         />
-        <Route path="/phone" component={ProductsMoreInfo} />
+        <Route
+          path={`/phone-${productIdMoreInfo}`}
+          render={() => {
+            const filterPhones = dataPhone.filter(phone => {
+              return phone.id === productIdMoreInfo;
+            });
+
+            return (
+              <ProductsInfo
+                phone={filterPhones[0]}
+                handleAddProductToCart={this.handleAddProductToCart}
+                handleInfoIdForm={this.handleInfoIdForm}
+                orderPosition={orderPosition}
+              />
+            );
+          }}
+        />
         <Route path="/shopping-cart" component={ShoppingCart} />
         <Route path="/shopping-form" component={ShoppingForm} />
         <Route component={ErrorPage} />
