@@ -131,7 +131,13 @@ class RouterSections extends Component {
       return <LoadingData />;
     }
 
-    const { dataPhone, productIdMoreInfo, orderPosition } = this.state;
+    const {
+      dataPhone,
+      productIdMoreInfo,
+      orderPosition,
+      totalPriceCart,
+      formInfoId
+    } = this.state;
 
     return (
       <Switch>
@@ -165,8 +171,23 @@ class RouterSections extends Component {
             );
           }}
         />
-        <Route path="/shopping-cart" component={ShoppingCart} />
-        <Route path="/shopping-form" component={ShoppingForm} />
+        <Route
+          path="/shopping-cart"
+          render={() => {
+            return (
+              <ShoppingCart
+                orderPosition={orderPosition}
+                totalPriceCart={totalPriceCart}
+              />
+            );
+          }}
+        />
+        <Route
+          path="/shopping-form"
+          render={() => {
+            return <ShoppingForm formInfoId={formInfoId} />;
+          }}
+        />
         <Route component={ErrorPage} />
       </Switch>
     );
