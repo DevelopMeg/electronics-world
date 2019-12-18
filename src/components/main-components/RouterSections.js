@@ -13,7 +13,8 @@ class RouterSections extends Component {
   state = {
     dataPhone: [],
     loadingDataPhone: false,
-    errorDataPhone: false
+    errorDataPhone: false,
+    productIdMoreInfo: ""
   };
 
   componentDidMount() {
@@ -45,6 +46,12 @@ class RouterSections extends Component {
     }
   };
 
+  handleOpenMoreInfo = id => {
+    this.setState({
+      productIdMoreInfo: id
+    });
+  };
+
   render() {
     if (this.state.errorDataPhone) {
       return <ErrorData />;
@@ -54,10 +61,22 @@ class RouterSections extends Component {
       return <LoadingData />;
     }
 
+    const { dataPhone } = this.state;
+
     return (
       <Switch>
         <Route path="/" exact component={WelcomePage} />
-        <Route path="/mobile-phones" component={ProductsList} />
+        <Route
+          path="/mobile-phones"
+          render={() => {
+            return (
+              <ProductsList
+                dataPhone={dataPhone}
+                handleOpenMoreInfo={this.handleOpenMoreInfo}
+              />
+            );
+          }}
+        />
         <Route path="/phone" component={ProductsMoreInfo} />
         <Route path="/shopping-cart" component={ShoppingCart} />
         <Route path="/shopping-form" component={ShoppingForm} />
