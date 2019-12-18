@@ -6,11 +6,54 @@ import ProductsMoreInfo from "../route-components/ProductsMoreInfo";
 import ShoppingCart from "../route-components/ShoppingCart";
 import ShoppingForm from "../route-components/ShoppingForm";
 import ErrorPage from "../route-components/ErrorPage";
+import ErrorData from "../route-components/ErrorData";
+import LoadingData from "../route-components/LoadingData";
 
 class RouterSections extends Component {
-  state = {};
+  state = {
+    dataPhone: [],
+    loadingDataPhone: false,
+    errorDataPhone: false
+  };
+
+  componentDidMount() {
+    this.handleGetDataPhone();
+  }
+
+  handleGetDataPhone = async () => {
+    this.setState({
+      loadingDataPhone: true
+    });
+
+    try {
+      const response = await fetch("./data/products.json");
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error();
+      }
+
+      return this.setState({
+        dataPhone: data,
+        loadingDataPhone: false
+      });
+    } catch (err) {
+      return this.setState({
+        errorDataPhone: true,
+        loadingDataPhone: false
+      });
+    }
+  };
 
   render() {
+    if (this.state.errorDataPhone) {
+      return <ErrorData />;
+    }
+
+    if (this.state.loadingDataPhone) {
+      return <LoadingData />;
+    }
+
     return (
       <Switch>
         <Route path="/" exact component={WelcomePage} />
