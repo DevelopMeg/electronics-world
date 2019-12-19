@@ -4,7 +4,7 @@ import Header from "./Header";
 import Menu from "./Menu";
 import Footer from "./Footer";
 import RouterSections from "./RouterSections";
-import "./style.css";
+import "../../sass/style.scss";
 
 class App extends Component {
   state = {};

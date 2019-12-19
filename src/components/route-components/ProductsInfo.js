@@ -94,7 +94,7 @@ class ProductsInfo extends Component {
   };
 
   render() {
-    const { id, name, oldPrice, price } = this.props.phone;
+    const { id, name, oldPrice, price, image } = this.props.phone;
 
     const {
       productPrice,
@@ -167,6 +167,11 @@ class ProductsInfo extends Component {
           more info about {name}{" "}
         </h4>
 
+        <div
+          className="section-products-info__box-image"
+          style={{ "background-image": `url(${image})` }}
+        ></div>
+
         <section className="price-info">
           <h5 className="price-info__title">price</h5>
           <p className="price-info__text price-info__text--old-price">
@@ -196,36 +201,34 @@ class ProductsInfo extends Component {
           </span>
         </h5>
 
-        <div className="add-to-cart">
-          <NavLink to="shopping-cart" className="add-to-cart__link">
-            <button
-              disabled={!productColor || !productCapacity}
-              className="add-to-cart__btn"
-              onClick={() => {
-                this.props.handleAddProductToCart(
-                  id,
-                  name,
-                  productColor,
-                  productCapacity,
-                  productPrice,
-                  productTotalPrice,
-                  extraCostColor,
-                  extraCostCapacity
-                );
-                this.props.handleInfoIdForm(
-                  id,
-                  colorsId,
-                  capacitiesId,
-                  chooseColorId,
-                  chooseCapacityId,
-                  productTotalPrice
-                );
-              }}
-            >
-              add to cart
-            </button>
-          </NavLink>
-        </div>
+        <NavLink to="shopping-cart" className="add-cart-link">
+          <button
+            disabled={!productColor || !productCapacity}
+            className="add-cart-btn"
+            onClick={() => {
+              this.props.handleAddProductToCart(
+                id,
+                name,
+                productColor,
+                productCapacity,
+                productPrice,
+                productTotalPrice,
+                extraCostColor,
+                extraCostCapacity
+              );
+              this.props.handleInfoIdForm(
+                id,
+                colorsId,
+                capacitiesId,
+                chooseColorId,
+                chooseCapacityId,
+                productTotalPrice
+              );
+            }}
+          >
+            add to cart
+          </button>
+        </NavLink>
       </section>
     );
   }
