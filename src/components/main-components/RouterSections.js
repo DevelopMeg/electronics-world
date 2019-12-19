@@ -122,6 +122,15 @@ class RouterSections extends Component {
     }));
   };
 
+  handleBuyAgain = () => {
+    this.setState({
+      productIdMoreInfo: "",
+      orderPosition: [],
+      totalPriceCart: 0,
+      formInfoId: []
+    });
+  };
+
   render() {
     if (this.state.errorDataPhone) {
       return <ErrorData />;
@@ -185,7 +194,12 @@ class RouterSections extends Component {
         <Route
           path="/shopping-form"
           render={() => {
-            return <ShoppingForm formInfoId={formInfoId} />;
+            return (
+              <ShoppingForm
+                formInfoId={formInfoId}
+                handleBuyAgain={this.handleBuyAgain}
+              />
+            );
           }}
         />
         <Route component={ErrorPage} />

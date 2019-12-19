@@ -332,7 +332,12 @@ class ShoppingForm extends Component {
 
         {submitDone && (
           <NavLink to="/" className="buy-again__link">
-            <button className="buy-again__btn">buy again</button>
+            <button
+              className="buy-again__btn"
+              onClick={this.props.handleBuyAgain}
+            >
+              buy again
+            </button>
           </NavLink>
         )}
       </section>

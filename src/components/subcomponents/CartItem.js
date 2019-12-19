@@ -2,7 +2,6 @@ import React from "react";
 
 const CartItem = props => {
   const {
-    id,
     name,
     color,
     capacity,
