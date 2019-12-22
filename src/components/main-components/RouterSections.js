@@ -8,6 +8,7 @@ import ShoppingForm from "../route-components/ShoppingForm";
 import ErrorPage from "../route-components/ErrorPage";
 import ErrorData from "../route-components/ErrorData";
 import LoadingData from "../route-components/LoadingData";
+import ScrollToTop from "../route-components/ScrollToTop";
 
 class RouterSections extends Component {
   state = {
@@ -149,61 +150,63 @@ class RouterSections extends Component {
     } = this.state;
 
     return (
-      <Switch>
-        <Route path="/" exact component={WelcomePage} />
-        <Route
-          path="/mobile-phones"
-          render={() => {
-            return (
-              <ProductsList
-                dataPhone={dataPhone}
-                handleOpenMoreInfo={this.handleOpenMoreInfo}
-                orderPosition={orderPosition}
-              />
-            );
-          }}
-        />
-        <Route
-          path={`/phone-${productIdMoreInfo}`}
-          render={() => {
-            const filterPhones = dataPhone.filter(phone => {
-              return phone.id === productIdMoreInfo;
-            });
+      <ScrollToTop>
+        <Switch>
+          <Route path="/" exact component={WelcomePage} />
+          <Route
+            path="/mobile-phones"
+            render={() => {
+              return (
+                <ProductsList
+                  dataPhone={dataPhone}
+                  handleOpenMoreInfo={this.handleOpenMoreInfo}
+                  orderPosition={orderPosition}
+                />
+              );
+            }}
+          />
+          <Route
+            path={`/phone-${productIdMoreInfo}`}
+            render={() => {
+              const filterPhones = dataPhone.filter(phone => {
+                return phone.id === productIdMoreInfo;
+              });
 
-            return (
-              <ProductsInfo
-                phone={filterPhones[0]}
-                handleAddProductToCart={this.handleAddProductToCart}
-                handleInfoIdForm={this.handleInfoIdForm}
-                orderPosition={orderPosition}
-              />
-            );
-          }}
-        />
-        <Route
-          path="/shopping-cart"
-          render={() => {
-            return (
-              <ShoppingCart
-                orderPosition={orderPosition}
-                totalPriceCart={totalPriceCart}
-              />
-            );
-          }}
-        />
-        <Route
-          path="/shopping-form"
-          render={() => {
-            return (
-              <ShoppingForm
-                formInfoId={formInfoId}
-                handleBuyAgain={this.handleBuyAgain}
-              />
-            );
-          }}
-        />
-        <Route component={ErrorPage} />
-      </Switch>
+              return (
+                <ProductsInfo
+                  phone={filterPhones[0]}
+                  handleAddProductToCart={this.handleAddProductToCart}
+                  handleInfoIdForm={this.handleInfoIdForm}
+                  orderPosition={orderPosition}
+                />
+              );
+            }}
+          />
+          <Route
+            path="/shopping-cart"
+            render={() => {
+              return (
+                <ShoppingCart
+                  orderPosition={orderPosition}
+                  totalPriceCart={totalPriceCart}
+                />
+              );
+            }}
+          />
+          <Route
+            path="/shopping-form"
+            render={() => {
+              return (
+                <ShoppingForm
+                  formInfoId={formInfoId}
+                  handleBuyAgain={this.handleBuyAgain}
+                />
+              );
+            }}
+          />
+          <Route component={ErrorPage} />
+        </Switch>
+      </ScrollToTop>
     );
   }
 }
