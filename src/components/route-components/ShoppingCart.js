@@ -13,31 +13,36 @@ const ShoppingCart = props => {
 
   return (
     <section className="section-shopping-cart">
-      <NavLink to="/mobile-phones" className="return__link">
-        <button className="return__btn">return</button>
+      <NavLink to="/mobile-phones" className="link">
+        <button className="return__btn return-btn--cart">return</button>
       </NavLink>
 
       <section className="shopping-cart">
         <h4 className="shopping-cart__title">your shopping cart</h4>
-        <p className="shopping-cart__subtitle shopping-cart__subtitle--product">
-          product
-        </p>
-        <p className="shopping-cart__subtitle shopping-cart__subtitle--price">
-          price
-        </p>
-        <p className="shopping-cart__subtitle shopping-cart__subtitle--parameters">
-          parameters
-        </p>
-        <p className="shopping-cart__subtitle shopping-cart__subtitle--totality">
-          totality
-        </p>
+        <div className="shopping-cart__box-subtitle">
+          <p className="shopping-cart__subtitle shopping-cart__subtitle--product">
+            product
+          </p>
+          <p className="shopping-cart__subtitle shopping-cart__subtitle--price">
+            price
+          </p>
+          <p className="shopping-cart__subtitle shopping-cart__subtitle--parameters">
+            parameters
+          </p>
+          <p className="shopping-cart__subtitle shopping-cart__subtitle--totality">
+            totality
+          </p>
+        </div>
         <ol className="shopping-cart__list">{orders}</ol>
       </section>
 
       <p className="shopping-cart__value-purchases">
-        value of purchases: {props.totalPriceCart} $
+        value of purchases:{" "}
+        <span className="shopping-cart__value-purchases--price">
+          {props.totalPriceCart} ${" "}
+        </span>
       </p>
-      <NavLink to="/shopping-form" className="shopping-cart__buy-link">
+      <NavLink to="/shopping-form" className="link">
         <button className="shopping-cart__buy-btn">buy</button>
       </NavLink>
     </section>

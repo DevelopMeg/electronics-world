@@ -10,7 +10,7 @@ const Product = props => {
     <article className="product">
       <div
         className="product__box-image"
-        style={{ "background-image": `url(${image})` }}
+        style={{ backgroundImage: `url(${image})` }}
       ></div>
 
       <h5 className="product__title">{name}</h5>
@@ -23,7 +23,7 @@ const Product = props => {
         </p>
       </div>
 
-      <NavLink to={`/phone-${id}`} className="product__info-link">
+      <NavLink to={`/phone-${id}`} className="link">
         <button
           className="product__info-btn"
           onClick={() => props.handleOpenMoreInfo(id)}

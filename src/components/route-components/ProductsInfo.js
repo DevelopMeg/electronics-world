@@ -115,24 +115,34 @@ class ProductsInfo extends Component {
 
     const colors = colorsArr.map((color, id) => {
       return (
-        <p
+        <div
           key={id}
-          className="color-info__name"
-          onClick={() => {
+          className={
+            productColor === color.name
+              ? "color-info__box-name color-info__box-name--selected"
+              : "color-info__box-name"
+          }
+          cost={`+${color.priceModifier}$`}
+          onClick={e => {
             this.handleChooseColor(color.id, color.name, color.priceModifier);
             this.handleTotalPrice();
           }}
         >
-          {color.name}
-        </p>
+          <p className="color-info__name">{color.name}</p>
+        </div>
       );
     });
 
     const capacities = capacitiesArr.map((capacity, id) => {
       return (
-        <p
+        <div
           key={id}
-          className="capacity-info__name"
+          className={
+            productCapacity === capacity.name
+              ? "capacity-info__box-name capacity-info__box-name--selected"
+              : "capacity-info__box-name"
+          }
+          cost={`+${capacity.priceModifier}$`}
           onClick={() => {
             this.handleChooseCapacity(
               capacity.id,
@@ -142,23 +152,26 @@ class ProductsInfo extends Component {
             this.handleTotalPrice();
           }}
         >
-          {capacity.name}
-        </p>
+          <p className="capacity-info__name">{capacity.name}</p>
+        </div>
       );
     });
 
     return (
       <section className="section-products-info">
         {this.props.orderPosition.length !== 0 && (
-          <NavLink to="/shopping-cart" className="icon-cart__link">
+          <NavLink to="/shopping-cart" className="link">
             <div className="icon-cart__box">
               <i className="fas fa-shopping-cart icon-cart__icon"></i>
             </div>
           </NavLink>
         )}
 
-        <NavLink to="/mobile-phones" className="return__link">
-          <button onClick={this.handleClearInfoProduct} className="return__btn">
+        <NavLink to="/mobile-phones" className="link link--info-return">
+          <button
+            onClick={this.handleClearInfoProduct}
+            className="return__btn return__btn--info"
+          >
             return
           </button>
         </NavLink>
@@ -169,66 +182,70 @@ class ProductsInfo extends Component {
 
         <div
           className="section-products-info__box-image"
-          style={{ "background-image": `url(${image})` }}
+          style={{ backgroundImage: `url(${image})` }}
         ></div>
 
-        <section className="price-info">
-          <h5 className="price-info__title">price</h5>
-          <p className="price-info__text price-info__text--old-price">
-            {oldPrice} $
-          </p>
-          <p className="price-info__text price-info__text--price">{price} $</p>
-          <p className="price-info__text price-info__text--promotion">
-            {percentLess} %
-          </p>
-        </section>
+        <div className="section-products-info__box-parameters">
+          <section className="price-info">
+            <h5 className="price-info__title">price</h5>
+            <p className="price-info__text price-info__text--old-price">
+              {oldPrice} $
+            </p>
+            <p className="price-info__text price-info__text--price">
+              {price} $
+            </p>
+            <p className="price-info__text price-info__text--promotion">
+              {percentLess} %
+            </p>
+          </section>
 
-        <section className="color-info">
-          <h5 className="color-info__title">color</h5>
-          {colors}
-        </section>
+          <section className="color-info">
+            <h5 className="color-info__title">color</h5>
+            {colors}
+          </section>
 
-        <section className="capacity-info">
-          <h5 className="capacity-info__title">capacity</h5>
-          {capacities}
-        </section>
+          <section className="capacity-info">
+            <h5 className="capacity-info__title">capacity</h5>
+            {capacities}
+          </section>
 
-        <h5 className="total-price-info">
-          total price:
-          <span className="total-price-info__price">
-            {" "}
-            {productTotalPrice ? productTotalPrice : productPrice} $
-          </span>
-        </h5>
+          <h5 className="total-price-info">
+            total price:
+            <span className="total-price-info__price">
+              {" "}
+              {productTotalPrice ? productTotalPrice : productPrice} $
+            </span>
+          </h5>
 
-        <NavLink to="shopping-cart" className="add-cart-link">
-          <button
-            disabled={!productColor || !productCapacity}
-            className="add-cart-btn"
-            onClick={() => {
-              this.props.handleAddProductToCart(
-                id,
-                name,
-                productColor,
-                productCapacity,
-                productPrice,
-                productTotalPrice,
-                extraCostColor,
-                extraCostCapacity
-              );
-              this.props.handleInfoIdForm(
-                id,
-                colorsId,
-                capacitiesId,
-                chooseColorId,
-                chooseCapacityId,
-                productTotalPrice
-              );
-            }}
-          >
-            add to cart
-          </button>
-        </NavLink>
+          <NavLink to="shopping-cart" className="link link--add-cart">
+            <button
+              disabled={!productColor || !productCapacity}
+              className="add-cart-btn"
+              onClick={() => {
+                this.props.handleAddProductToCart(
+                  id,
+                  name,
+                  productColor,
+                  productCapacity,
+                  productPrice,
+                  productTotalPrice,
+                  extraCostColor,
+                  extraCostCapacity
+                );
+                this.props.handleInfoIdForm(
+                  id,
+                  colorsId,
+                  capacitiesId,
+                  chooseColorId,
+                  chooseCapacityId,
+                  productTotalPrice
+                );
+              }}
+            >
+              add to cart
+            </button>
+          </NavLink>
+        </div>
       </section>
     );
   }

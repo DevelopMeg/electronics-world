@@ -16,7 +16,7 @@ const ProductsList = props => {
   return (
     <section className="section-products-list">
       {props.orderPosition.length !== 0 && (
-        <NavLink to="/shopping-cart" className="icon-cart__link">
+        <NavLink to="/shopping-cart" className="link">
           <div className="icon-cart__box">
             <i className="fas fa-shopping-cart icon-cart__icon"></i>
           </div>

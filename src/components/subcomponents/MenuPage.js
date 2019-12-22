@@ -7,7 +7,7 @@ const MenuPage = props => {
   return (
     <NavLink to={path} className="menu__link">
       <li className="menu__item">
-        {name}
+        <p className="menu__name">{name}</p>
         <i className={`${icon} menu__icon`}></i>
       </li>
     </NavLink>
