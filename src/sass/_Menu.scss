@@ -1,0 +1,145 @@
+.menu {
+  height: 22vh;
+
+  &__item-list {
+    margin: 0 auto;
+    padding: 4px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #97c3d8;
+    border-radius: 20px;
+    @include handleSize(92%, 16vh);
+  }
+
+  &__link {
+    flex-basis: 30%;
+    text-decoration: none;
+    color: #000;
+  }
+
+  &__link.active &__item {
+    border: 2px solid #153f54;
+    background-color: #fff;
+  }
+
+  &__item {
+    border: 2px dotted #7297a9;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6vh;
+    list-style: none;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    border-radius: 20px;
+  }
+
+  &__icon {
+    padding-left: 8px;
+  }
+}
+
+@media (min-width: 360px) {
+  .menu {
+    &__item {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+@media (min-width: 480px) {
+  .menu {
+    &__item-list {
+      @include handleSize(88%, 14vh);
+    }
+
+    &__item {
+      padding: 15px;
+      height: 5vh;
+      font-size: 1.8rem;
+    }
+  }
+}
+
+@media (min-width: 720px) {
+  .menu {
+    height: 16vh;
+    &__item-list {
+      @include handleSize(70%, 12vh);
+    }
+
+    &__item {
+      height: 4vh;
+      font-size: 2rem;
+    }
+  }
+}
+
+@media (min-width: 480px) and (orientation: landscape) {
+  .menu {
+    height: 38vh;
+
+    &__item-list {
+      height: 30vh;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .menu {
+    position: absolute;
+    left: 1%;
+    height: auto;
+
+    &__name {
+      display: none;
+    }
+
+    &__item-list {
+      padding: 0;
+      flex-direction: column;
+      width: 100%;
+      height: auto;
+      background-color: #fff;
+    }
+
+    &__item {
+      padding: 0;
+      border: 2px solid #153f54;
+      margin-bottom: 5px;
+      position: relative;
+      @include handleSize(7vh, 7vh);
+      border-radius: 30px;
+      background-color: #97c3d8;
+    }
+
+    &__icon {
+      padding: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2.4rem;
+      transition: color 0.5s;
+    }
+
+    &__link {
+      z-index: 1;
+    }
+
+    &__item:hover &__icon {
+      color: #1084bd;
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  .menu {
+    &__item {
+      @include handleSize(6vh, 6vh);
+    }
+  }
+}

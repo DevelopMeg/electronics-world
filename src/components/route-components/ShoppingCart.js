@@ -43,7 +43,9 @@ const ShoppingCart = props => {
         </span>
       </p>
       <NavLink to="/shopping-form" className="link">
-        <button className="shopping-cart__buy-btn">buy</button>
+        <button className="shopping-cart__buy-btn">
+          <span className="shopping-cart__buy-btn-text">buy</span>
+        </button>
       </NavLink>
     </section>
   );
