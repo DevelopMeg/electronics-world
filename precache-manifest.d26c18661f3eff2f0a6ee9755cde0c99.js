@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9d12815d64faa83acdaaea0dbcad84b4",
+    "revision": "6fdca74f175ca490dfd5a82a04098917",
     "url": "/electronics-world/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/electronics-world/static/css/2.764ccc25.chunk.css"
   },
   {
-    "revision": "1695c159a20a1a0058b9",
+    "revision": "a435a6d10c600f02a82b",
     "url": "/electronics-world/static/css/main.86e53f44.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/electronics-world/static/js/2.56299713.chunk.js.LICENSE"
   },
   {
-    "revision": "1695c159a20a1a0058b9",
-    "url": "/electronics-world/static/js/main.a524fd5a.chunk.js"
+    "revision": "a435a6d10c600f02a82b",
+    "url": "/electronics-world/static/js/main.a403ac10.chunk.js"
   },
   {
     "revision": "27c2670939a888f6a8bb",
