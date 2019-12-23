@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/electronics-world/static/css/main.86e53f44.chunk.css",
+    "main.js": "/electronics-world/static/js/main.a524fd5a.chunk.js",
+    "main.js.map": "/electronics-world/static/js/main.a524fd5a.chunk.js.map",
+    "runtime-main.js": "/electronics-world/static/js/runtime-main.62f670c4.js",
+    "runtime-main.js.map": "/electronics-world/static/js/runtime-main.62f670c4.js.map",
+    "static/css/2.764ccc25.chunk.css": "/electronics-world/static/css/2.764ccc25.chunk.css",
+    "static/js/2.56299713.chunk.js": "/electronics-world/static/js/2.56299713.chunk.js",
+    "static/js/2.56299713.chunk.js.map": "/electronics-world/static/js/2.56299713.chunk.js.map",
+    "index.html": "/electronics-world/index.html",
+    "precache-manifest.a9c934362992a414fa46784d45719fee.js": "/electronics-world/precache-manifest.a9c934362992a414fa46784d45719fee.js",
+    "service-worker.js": "/electronics-world/service-worker.js",
+    "static/css/2.764ccc25.chunk.css.map": "/electronics-world/static/css/2.764ccc25.chunk.css.map",
+    "static/css/main.86e53f44.chunk.css.map": "/electronics-world/static/css/main.86e53f44.chunk.css.map",
+    "static/js/2.56299713.chunk.js.LICENSE": "/electronics-world/static/js/2.56299713.chunk.js.LICENSE",
+    "static/media/style.scss": "/electronics-world/static/media/welcome.f03a7518.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.62f670c4.js",
+    "static/css/2.764ccc25.chunk.css",
+    "static/js/2.56299713.chunk.js",
+    "static/css/main.86e53f44.chunk.css",
+    "static/js/main.a524fd5a.chunk.js"
+  ]
+}
