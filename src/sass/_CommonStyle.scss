@@ -1,0 +1,128 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 0.625rem;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.return {
+  &__btn {
+    border: 2px solid #5e6c73;
+    display: block;
+    position: relative;
+    left: 5%;
+    @include handleSize(30%, 5vh);
+    font-size: 1.4rem;
+    background-color: #bdbebf;
+    @include handleWeightUpper(600);
+  }
+}
+
+.icon-cart {
+  &__box {
+    z-index: 2;
+    border: 2px solid #5e6c73;
+    margin-bottom: 10px;
+    position: absolute;
+    right: 5%;
+    top: 32%;
+    @include handleSize(8vh, 8vh);
+    border-radius: 30px;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #5e6c73;
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 480px) {
+  .return {
+    &__btn {
+      font-size: 1.6rem;
+    }
+  }
+
+  .icon-cart {
+    &__box {
+      @include handleSize(7vh, 7vh);
+    }
+  }
+}
+
+@media (min-width: 720px) {
+  .return {
+    &__btn {
+      @include handleSize(25%, 4vh);
+    }
+  }
+
+  .icon-cart {
+    &__box {
+      top: 24%;
+      @include handleSize(5vh, 5vh);
+    }
+  }
+}
+
+@media (min-width: 480px) and (orientation: landscape) {
+  .return {
+    &__btn {
+      height: 10vh;
+    }
+  }
+  .icon-cart {
+    &__box {
+      top: 60%;
+      @include handleSize(14vh, 14vh);
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .return {
+    &__btn {
+      height: 4vh;
+      cursor: pointer;
+    }
+  }
+
+  .icon-cart {
+    &__box {
+      position: fixed;
+      top: 3vh;
+      left: unset;
+      right: 8%;
+      @include handleSize(7vh, 7vh);
+    }
+    &__icon {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+@media (min-width: 1400px) {
+  .icon-cart {
+    &__box {
+      @include handleSize(6vh, 6vh);
+    }
+    &__icon {
+      font-size: 2.8rem;
+    }
+  }
+}

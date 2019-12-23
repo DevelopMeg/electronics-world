@@ -1,0 +1,14 @@
+@mixin handleSize($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin handleFontSizeSpacing($fontSize, $letterSpacing) {
+  font-size: $fontSize;
+  letter-spacing: $letterSpacing;
+}
+
+@mixin handleWeightUpper($weight) {
+  font-weight: $weight;
+  text-transform: uppercase;
+}
