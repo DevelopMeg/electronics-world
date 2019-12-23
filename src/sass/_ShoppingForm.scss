@@ -1,0 +1,369 @@
+.section-shopping-form {
+  &__title {
+    margin: 15px 0 20px 0;
+    text-align: center;
+    font-size: 1.8rem;
+    @include handleWeightUpper(400);
+  }
+}
+
+.shopping-form {
+  padding: 0 10px;
+
+  &__title {
+    padding-right: 8px;
+    display: block;
+    font-size: 1.5rem;
+    @include handleWeightUpper(500);
+
+    &--basic-one,
+    &--basic-two,
+    &--basic-three {
+      grid-column: 1/2;
+      align-self: center;
+    }
+
+    &--address {
+      margin-bottom: 4px;
+    }
+  }
+
+  &__input {
+    padding-left: 5px;
+    height: 6vh;
+    font-size: 1.3rem;
+
+    &--address {
+      margin-bottom: 5px;
+      width: 100%;
+    }
+  }
+
+  &__input,
+  &__title {
+    &--basic-one {
+      grid-row: 1/2;
+    }
+
+    &--basic-two {
+      grid-row: 3/4;
+    }
+
+    &--basic-three {
+      grid-row: 5/6;
+    }
+  }
+
+  &__invalid {
+    display: block;
+    font-size: 1.2rem;
+    color: #ff4545;
+
+    &--basic-one {
+      grid-row: 2/3;
+    }
+
+    &--basic-two {
+      grid-row: 4/5;
+    }
+
+    &--basic-three {
+      grid-row: 6/7;
+    }
+
+    &--address {
+      width: 100%;
+    }
+  }
+
+  &__input,
+  &__invalid {
+    &--basic-one,
+    &--basic-two,
+    &--basic-three {
+      margin-left: 2px;
+      grid-column: 2/3;
+    }
+  }
+
+  &__box-basic {
+    margin: 10px auto 30px auto;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 20% 10% 20% 10% 20% 10%;
+    grid-gap: 5px;
+    @include handleSize(80%, 28vh);
+  }
+
+  &__fieldset {
+    border: 2px solid #5e6c73;
+    margin: 20px auto 25px auto;
+    padding: 10px;
+    width: 95%;
+  }
+
+  &__legend {
+    padding: 0 5px;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+
+  &__box-address {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  &__box-street,
+  &__box-city {
+    flex-basis: 55%;
+  }
+
+  &__box-number,
+  &__box-postcode {
+    flex-basis: 40%;
+  }
+
+  &__box-street,
+  &__box-number {
+    margin-bottom: 10px;
+  }
+
+  &__submit {
+    margin: 10px auto;
+    border: 3px double #5e6c73;
+    display: block;
+    @include handleSize(45%, 6vh);
+    font-size: 1.4rem;
+    @include handleWeightUpper(600);
+    background-color: #d8dee0;
+  }
+}
+
+.buy-again {
+  margin: 10px auto;
+  border: 2px solid #5e6c73;
+  display: block;
+  font-size: 1.4rem;
+  @include handleSize(45%, 6vh);
+  @include handleWeightUpper(600);
+  background-color: #fff;
+}
+
+@media (min-width: 360px) {
+  .shopping-form {
+    &__title {
+      font-size: 1.6rem;
+    }
+
+    &__input {
+      height: 5vh;
+    }
+
+    &__invalid {
+      font-size: 1.3rem;
+    }
+
+    &__box-basic {
+      height: 24vh;
+    }
+
+    &__submit,
+    &__legend {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media (min-width: 480px) {
+  .section-shopping-form {
+    &__title {
+      font-size: 1.9rem;
+    }
+  }
+
+  .shopping-form {
+    &__title {
+      font-size: 1.7rem;
+    }
+
+    &__input {
+      font-size: 1.4rem;
+    }
+
+    &__invalid {
+      font-size: 1.5rem;
+    }
+
+    &__fieldset {
+      width: 85%;
+    }
+
+    &__submit,
+    &__legend {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+@media (min-width: 720px) {
+  .shopping-form {
+    &__title {
+      font-size: 2rem;
+      &--address {
+        margin-bottom: 10px;
+      }
+    }
+    &__box-basic {
+      height: 26vh;
+    }
+
+    &__input {
+      font-size: 1.6rem;
+      &--basic-one {
+        margin-top: 1px;
+      }
+
+      &--address {
+        margin-bottom: 10px;
+      }
+    }
+
+    &__invalid {
+      font-size: 1.6rem;
+    }
+
+    &__legend {
+      padding: 0 10px;
+      font-size: 1.8rem;
+    }
+
+    &__submit {
+      @include handleSize(40%, 4vh);
+      font-size: 1.8rem;
+    }
+  }
+
+  .buy-again {
+    @include handleSize(40%, 4vh);
+  }
+}
+
+@media (min-width: 480px) and (orientation: landscape) {
+  .shopping-form {
+    &__box-basic {
+      height: 50vh;
+    }
+
+    &__input,
+    &__submit {
+      height: 10vh;
+    }
+  }
+
+  .buy-again {
+    height: 10vh;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-shopping-form {
+    margin: 0 auto;
+    width: 80%;
+  }
+
+  .shopping-form {
+    &__title {
+      padding-right: 20px;
+      font-size: 1.8rem;
+    }
+
+    &__box-basic {
+      grid-template-columns: 25% 75%;
+      @include handleSize(60%, 26vh);
+    }
+
+    &__box-street,
+    &__box-number {
+      margin-bottom: 15px;
+    }
+
+    &__fieldset {
+      width: 70%;
+      padding: 20px;
+    }
+
+    &__legend {
+      font-size: 1.7rem;
+    }
+
+    &__invalid {
+      font-size: 1.6rem;
+    }
+
+    &__input {
+      padding-left: 10px;
+      font-size: 1.7rem;
+    }
+
+    &__submit {
+      @include handleSize(30%, 5vh);
+      font-size: 1.7rem;
+      cursor: pointer;
+    }
+
+    &__input {
+      height: 5vh;
+    }
+  }
+
+  .buy-again {
+    @include handleSize(30%, 5vh);
+    font-size: 1.6rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .shopping-form {
+    &__box-basic {
+      width: 50%;
+    }
+
+    &__fieldset {
+      width: 60%;
+    }
+
+    &__submit {
+      margin: 15px auto;
+      font-size: 1.8rem;
+      width: 25%;
+    }
+  }
+
+  .buy-again {
+    width: 25%;
+  }
+}
+
+@media (min-width: 1600px) {
+  .section-shopping-form {
+    &__title {
+      margin-bottom: 30px;
+      font-size: 2.2rem;
+    }
+  }
+  .shopping-form {
+    &__title {
+      font-size: 2rem;
+    }
+
+    &__submit {
+      font-size: 2rem;
+    }
+  }
+
+  .buy-again {
+    width: 20%;
+    font-size: 1.7rem;
+  }
+}

@@ -1,0 +1,143 @@
+.section-welcome {
+  height: 56vh;
+  text-align: center;
+  text-transform: uppercase;
+
+  &__title {
+    margin-top: 0;
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+
+  &__subtitle {
+    margin-top: 15px;
+    font-weight: 500;
+    font-size: 1.2rem;
+  }
+
+  &__box-image {
+    margin-top: 15px;
+    background-image: url("../images/welcome.jpg");
+    background-size: cover;
+    background-position: center;
+    @include handleSize(100%, 40vh);
+  }
+}
+
+@media (min-width: 360px) {
+  .section-welcome {
+    &__title {
+      font-size: 1.8rem;
+    }
+
+    &__subtitle,
+    &__box-image {
+      margin-top: 18px;
+    }
+
+    &__subtitle {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+@media (min-width: 480px) {
+  .section-welcome {
+    &__title {
+      font-size: 2rem;
+    }
+
+    &__subtitle {
+      margin-top: 22px;
+      font-size: 1.6rem;
+    }
+  }
+}
+
+@media (min-width: 720px) {
+  .section-welcome {
+    &__title {
+      font-size: 2.2rem;
+    }
+
+    &__subtitle {
+      margin-top: 28px;
+      font-size: 1.8rem;
+    }
+  }
+}
+
+@media (min-width: 480px) and (orientation: landscape) {
+  .section-welcome {
+    height: 95vh;
+
+    &__box-image {
+      height: 75vh;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-welcome {
+    height: 80vh;
+
+    &__title {
+      padding-top: 30px;
+    }
+
+    &__box-image {
+      height: 70vh;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .section-welcome {
+    &__title {
+      font-size: 2.4rem;
+    }
+
+    &__subtitle {
+      font-size: 2rem;
+    }
+
+    &__box-image {
+      width: 80%;
+      margin: 18px auto 0 auto;
+    }
+  }
+}
+
+@media (min-width: 1400px) {
+  .section-welcome {
+    &__box-image {
+      width: 70%;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media (min-width: 1600px) {
+  .section-welcome {
+    &__title {
+      font-size: 2.6rem;
+    }
+
+    &__subtitle {
+      margin-top: 30px;
+      font-size: 2.2rem;
+    }
+
+    &__box-image {
+      @include handleSize(60%, 60vh);
+    }
+  }
+}
+
+@media (min-width: 1900px) {
+  .section-welcome {
+    &__box-image {
+      @include handleSize(55%, 55vh);
+    }
+  }
+}
