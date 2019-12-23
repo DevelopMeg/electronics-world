@@ -12,7 +12,7 @@ class App extends Component {
   render() {
     return (
       <div className="wrapper">
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
           <Header />
           <Menu />
           <main className="main">
