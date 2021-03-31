@@ -4,7 +4,7 @@
     "name": "iPhone 8",
     "price": 99.99,
     "oldPrice": 599.0,
-    "image": "../data/images/Iphone8.jpg",
+    "image": "./data/images/Iphone8.jpg",
     "options": [
       {
         "id": 100,
@@ -50,7 +50,7 @@
     "name": "iPhone 8 Plus",
     "price": 129.99,
     "oldPrice": 699.0,
-    "image": "../data/images/Iphone8Plus.jpg",
+    "image": "./data/images/Iphone8Plus.jpg",
     "options": [
       {
         "id": 100,

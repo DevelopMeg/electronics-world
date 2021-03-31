@@ -1,31 +1,36 @@
-## electronics-world
+# electronics-world
 
-#### This is mini online shop where you find and order products
+> This is my old project (which doesn`t contain aspects I learned from feedback), but shows progress of my skills
 
-Project was created with [Create React App](https://github.com/facebook/create-react-app). Additionaly I used React Router, SCSS, RWD, BEM.
+#### This is mini online shop (works only for mobile phones), it was recruitment task
+
+Link: https://developmeg.github.io/electronics-world/
 
 ---
 
-### start application
+![screen home page](./public/screens/screen1.png)
 
-Project should be install locally, because data is located in public file.
+![screen products page](./public/screens/screen2.png)
 
-### Development
+![screen product page](./public/screens/screen3.png)
 
-#### `npm install`
+![screen cart page](./public/screens/screen4.png)
 
-install dependencies
+## Technologies
 
-#### `npm start`
+- React (Create React App)
+- React Router
+- SCSS
+- BEM
 
-run application on localhost:3000
+#### Extra Packages
 
-### Production
+- react-input-mask
 
-#### `npm install`
+## Installation
 
-install dependencies
+Clone this repository and install dependencies: `npm install`
 
-#### `npm run build`
+Next run application on your localhost: `npm start`
 
-build app for production
+To build project : `npm run build`
